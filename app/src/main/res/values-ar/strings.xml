@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">BudgetManagerAndExpenseTracker</string>
+    <string name="home_title_menu_item">الرئيسية</string>
+    <string name="history_title_menu_item">History</string>
+    <string name="purchases_title_menu_item">المشتريات</string>
+    <string name="profile_title_item_menu">الملف الشخصي</string>
+    <string name="language">اللغة</string>
+    <string name="lbl_notification">الاشعارات</string>
+    <string name="lbl_dark_mode">الوضع المظلم</string>
+    <string name="lbl_about_us">معلومات عنا</string>
+    <string name="lbl_my_profile">الملف الشخصي</string>
+    <string name="lbl_account">حسابي</string>
+    <string name="lbl_setting">الأعدادت</string>
+
+
+    <string-array name="list_of_currency">
+        <item>Sad</item>
+        <item>Dissatisfied</item>
+        <item>Satisfied</item>
+        <item>Happy</item>
+        <item>Excited</item>
+    </string-array>
+
+    <string-array name="list_of_language">
+        <item>لغة عربية</item>
+        <item>English</item>
+    </string-array>
+</resources>

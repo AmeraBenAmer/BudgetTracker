@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_home"
+        app:itemTextAppearance="@style/font_size_12_medium"
+        android:title="@string/home_title_menu_item"/>
+
+    <item
+        android:id="@+id/historyFragment"
+        android:icon="@drawable/ic_history"
+        app:itemTextAppearance="@style/font_size_12_medium"
+        android:title="@string/history_title_menu_item"/>
+
+    <item
+        android:id="@+id/purchasesFragment"
+        android:icon="@drawable/ic_purchses"
+
+        app:itemTextAppearance="@style/font_size_12_medium"
+
+        android:title="@string/purchases_title_menu_item"/>
+    <item
+        android:icon="@drawable/ic_user"
+        android:id="@+id/profileFragment"
+        app:itemTextAppearance="@style/font_size_12_medium"
+
+        android:title="@string/profile_title_item_menu"/>
+</menu>

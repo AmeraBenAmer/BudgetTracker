@@ -1,0 +1,32 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">BudgetManagerAndExpenseTracker</string>
+    <string name="home_title_menu_item">Home</string>
+    <string name="history_title_menu_item">History</string>
+    <string name="purchases_title_menu_item">Purchese</string>
+    <string name="profile_title_item_menu">Profile</string>
+    <string name="language">Language</string>
+    <string name="lbl_notification">Notification</string>
+    <string name="lbl_dark_mode">Dark Mode</string>
+    <string name="lbl_about_us">About Us</string>
+    <string name="lbl_my_profile">My Profile</string>
+    <string name="lbl_account">Account</string>
+    <string name="lbl_setting">Setting</string>
+
+
+    <string-array name="list_of_currency" tools:ignore="InconsistentArrays">
+        <item>LYD</item>
+        <item>RUB</item>
+        <item>AFN</item>
+        <item>EUR</item>
+        <item>ALL</item>
+        <item>EUR</item>
+        <item>GGP</item>
+        <item>AUD</item>
+        <item>BAM</item>
+    </string-array>
+
+    <string-array name="list_of_language">
+        <item>Arabic</item>
+        <item>English</item>
+    </string-array>
+</resources>

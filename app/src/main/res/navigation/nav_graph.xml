@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeAddFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.devamsba.managebudget.common.presentation.fragment.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/home_fragment_layout"/>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.devamsba.managebudget.feat_history.presentation.HistoryFragment"
+        android:label="HistoryFragment"
+        tools:layout="@layout/history_fragment_layout"/>
+    <fragment
+        android:id="@+id/historyDetailsFragement"
+        android:name="com.devamsba.managebudget.feat_history.presentation.HistoryDetailsFragement"
+        android:label="HistoryDetailsFragement"
+        tools:layout="@layout/history_details_fragment_layout"/>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.devamsba.managebudget.common.presentation.fragment.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/profile_fragment_layout">
+        <action
+            android:id="@+id/action_profileFragment_to_languageDialog"
+            app:destination="@id/languageDialog" />
+        <action
+            android:id="@+id/action_profileFragment_to_myBankAccountsFragment"
+            app:destination="@id/myBankAccountsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/purchasesAddFragement"
+        android:name="com.devamsba.managebudget.feat_purchases.presentation.PurchasesAddFragement"
+        android:label="PurchasesAddFragement"
+        tools:layout="@layout/purchases_add_fragment_layout"/>
+    <fragment
+        android:id="@+id/purchasesFragment"
+        android:name="com.devamsba.managebudget.feat_purchases.presentation.PurchasesFragment"
+        android:label="PurchasesFragment"
+        tools:layout="@layout/purchases_fragment_layout"/>
+    <fragment
+        android:id="@+id/homeAddFragment"
+        android:name="com.devamsba.managebudget.common.presentation.fragment.add_home.HomeAddFragment"
+        android:label="HomeAddFragemnt"
+        tools:layout="@layout/home_add_fragment_layout">
+
+    </fragment>
+    <fragment
+        android:id="@+id/languageDialog"
+        tools:layout="@layout/language_dialog"
+        android:name="com.devamsba.managebudget.common.presentation.dialog.LanguageDialog"
+        android:label="LanguageDialog" />
+    <fragment
+        android:id="@+id/typeMoneyDialog"
+        tools:layout="@layout/type_money_dialog"
+
+        android:name="com.devamsba.managebudget.feat_accounts.presentation.dialog.TypeMoneyDialog"
+        android:label="TypeMoneyDialog" />
+    <fragment
+        android:id="@+id/myBankAccountsFragment"
+        android:name="com.devamsba.managebudget.feat_accounts.presentation.MyBankAccountsFragment"
+        android:label="MyBankAccountsFragment" >
+        <action
+            android:id="@+id/action_myBankAccountsFragment_to_typeMoneyDialog"
+            app:destination="@id/typeMoneyDialog" />
+    </fragment>
+
+
+</navigation>
