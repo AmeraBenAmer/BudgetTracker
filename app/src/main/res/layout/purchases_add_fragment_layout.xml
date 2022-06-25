@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -71,26 +72,38 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.13" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewInsertPurchases"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/guidelineEnd"
+            app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/guidelineTop"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_list_of_purchases" />
+
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layoutOfEditTextName"
+            android:id="@+id/layoutOfEjjditTextQty"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_5sdp"
-            android:hint="Income Amount"
+            android:hint="type"
+            android:visibility="gone"
+            app:endIconMode="dropdown_menu"
             app:layout_constraintEnd_toEndOf="@+id/guidelineEnd"
             app:layout_constraintStart_toStartOf="@id/guidelineStart"
-            app:layout_constraintTop_toBottomOf="@id/guidelineTop">
+            app:layout_constraintTop_toBottomOf="@id/recyclerViewInsertPurchases">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/nameEditText"
-                style="@style/Widget.MyApp.Spinner.ThemeOverlay.TextView"
+            <AutoCompleteTextView
+                android:id="@+id/sourhceOfInchhomeEditText2"
+                style="@style/Widget.MyApp.Spinner.ThemeOverlay.AutoCompleteTextView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="number"
+                android:inputType="none"
                 android:lines="1"
                 android:maxLines="1"
-                android:nextFocusDown="@+id/layoutOfEditTextCurrency"
                 android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -100,66 +113,17 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_5sdp"
-            android:hint="Income Amount"
             android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:hint="category"
+            app:endIconMode="dropdown_menu"
+
             app:layout_constraintEnd_toEndOf="@+id/guidelineEnd"
             app:layout_constraintStart_toStartOf="@id/guidelineStart"
-            app:layout_constraintTop_toBottomOf="@id/layoutOfEditTextName">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/qtyEditText"
-                style="@style/Widget.MyApp.Spinner.ThemeOverlay.TextView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="number"
-                android:lines="1"
-                android:maxLines="1"
-                android:nextFocusDown="@+id/layoutOfEditTextCurrency"
-                android:textColor="@color/black" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layoutOfEditTextIncomeAmount"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_5sdp"
-            android:hint="Income Amount"
-            app:layout_constraintEnd_toEndOf="@+id/guidelineCenter"
-            app:layout_constraintStart_toStartOf="@id/guidelineStart"
-            android:layout_marginTop="@dimen/_10sdp"
-            app:layout_constraintTop_toBottomOf="@id/layoutOfEditTextQty">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/incomeAmountEditText"
-                style="@style/Widget.MyApp.Spinner.ThemeOverlay.TextView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="number"
-                android:lines="1"
-                android:maxLines="1"
-                android:nextFocusDown="@+id/layoutOfEditTextCurrency"
-                android:textColor="@color/black" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layoutOfEditTextCurrency"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_5sdp"
-            android:hint="Currency"
-            app:endIconMode="dropdown_menu"
-            app:layout_constraintBottom_toBottomOf="@+id/layoutOfEditTextIncomeAmount"
-            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
-            app:layout_constraintStart_toStartOf="@+id/guidelineCenter"
-            app:layout_constraintTop_toTopOf="@+id/layoutOfEditTextIncomeAmount">
+            app:layout_constraintTop_toBottomOf="@id/layoutOfEjjditTextQty">
 
             <AutoCompleteTextView
-                android:id="@+id/currencyEditText"
+                android:id="@+id/sourhceOfIncomeEditText2"
                 style="@style/Widget.MyApp.Spinner.ThemeOverlay.AutoCompleteTextView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -167,19 +131,69 @@
                 android:lines="1"
                 android:maxLines="1"
                 android:textColor="@color/black" />
+
         </com.google.android.material.textfield.TextInputLayout>
+
+        <!--        <com.google.android.material.textfield.TextInputLayout-->
+        <!--            android:id="@+id/layoutOfEditTextIncomeAmount"-->
+        <!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginEnd="@dimen/_5sdp"-->
+        <!--            android:hint="Income Amount"-->
+        <!--            app:layout_constraintEnd_toEndOf="@+id/guidelineCenter"-->
+        <!--            app:layout_constraintStart_toStartOf="@id/guidelineStart"-->
+        <!--            android:layout_marginTop="@dimen/_10sdp"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/layoutOfEditTextQty">-->
+
+        <!--            <com.google.android.material.textfield.TextInputEditText-->
+        <!--                android:id="@+id/incomeAmountEditText"-->
+        <!--                style="@style/Widget.MyApp.Spinner.ThemeOverlay.TextView"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="match_parent"-->
+        <!--                android:inputType="number"-->
+        <!--                android:lines="1"-->
+        <!--                android:maxLines="1"-->
+        <!--                android:nextFocusDown="@+id/layoutOfEditTextCurrency"-->
+        <!--                android:textColor="@color/black" />-->
+
+        <!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+        <!--        <com.google.android.material.textfield.TextInputLayout-->
+        <!--            android:id="@+id/layoutOfEditTextCurrency"-->
+        <!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="@dimen/_5sdp"-->
+        <!--            android:hint="Currency"-->
+        <!--            app:endIconMode="dropdown_menu"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@+id/layoutOfEditTextIncomeAmount"-->
+        <!--            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"-->
+        <!--            app:layout_constraintStart_toStartOf="@+id/guidelineCenter"-->
+        <!--            app:layout_constraintTop_toTopOf="@+id/layoutOfEditTextIncomeAmount">-->
+
+        <!--            <AutoCompleteTextView-->
+        <!--                android:id="@+id/currencyEditText"-->
+        <!--                style="@style/Widget.MyApp.Spinner.ThemeOverlay.AutoCompleteTextView"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="match_parent"-->
+        <!--                android:inputType="none"-->
+        <!--                android:lines="1"-->
+        <!--                android:maxLines="1"-->
+        <!--                android:textColor="@color/black" />-->
+        <!--        </com.google.android.material.textfield.TextInputLayout>-->
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layoutOfEditTextTypeOfIncome"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Currency"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:hint="account"
             app:endIconMode="dropdown_menu"
             app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
             app:layout_constraintStart_toStartOf="@+id/guidelineStart"
-            android:layout_marginTop="@dimen/_10sdp"
-            app:layout_constraintTop_toBottomOf="@+id/layoutOfEditTextCurrency">
+            app:layout_constraintTop_toBottomOf="@+id/layoutOfEditTextQty">
 
             <AutoCompleteTextView
                 android:id="@+id/typeOfIncomeEditText"
@@ -192,75 +206,30 @@
                 android:textColor="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layoutOfEditTextSourceOfIncome"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/totalAmountTextView"
+            style="@style/font_size_14_medium"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Source of Income"
-            app:endIconMode="dropdown_menu"
-            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:text="Total amount = 400 Dly"
             app:layout_constraintStart_toStartOf="@+id/guidelineStart"
-            android:layout_marginTop="@dimen/_10sdp"
-            app:layout_constraintTop_toBottomOf="@+id/layoutOfEditTextTypeOfIncome">
+            app:layout_constraintTop_toBottomOf="@+id/layoutOfEditTextTypeOfIncome" />
 
-            <AutoCompleteTextView
-                android:id="@+id/sourceOfIncomeEditText"
-                style="@style/Widget.MyApp.Spinner.ThemeOverlay.AutoCompleteTextView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="none"
-                android:lines="1"
-                android:maxLines="1"
-                android:textColor="@color/black" />
-        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layoutOfEditTextSourceOfIncome2"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/totalCountOfItemsTextView"
+            style="@style/font_size_14_medium"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Source of Income"
-            app:endIconMode="dropdown_menu"
-            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+
+            android:text="Total Items 20 item"
             app:layout_constraintStart_toStartOf="@+id/guidelineStart"
-            android:layout_marginTop="@dimen/_10sdp"
-            app:layout_constraintTop_toBottomOf="@+id/layoutOfEditTextSourceOfIncome">
+            app:layout_constraintTop_toBottomOf="@+id/totalAmountTextView" />
 
-            <AutoCompleteTextView
-                android:id="@+id/sourceOfIncomeEditText2"
-                style="@style/Widget.MyApp.Spinner.ThemeOverlay.AutoCompleteTextView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="none"
-                android:lines="1"
-                android:maxLines="1"
-                android:textColor="@color/black" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layoutOfEditTextDateOfIncome"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="Date of Income"
-            app:endIconMode="custom"
-            app:endIconDrawable="@drawable/ic_calender"
-            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
-            app:layout_constraintStart_toStartOf="@+id/guidelineStart"
-            android:layout_marginTop="@dimen/_10sdp"
-            app:layout_constraintTop_toBottomOf="@+id/layoutOfEditTextSourceOfIncome2">
-
-            <AutoCompleteTextView
-                android:id="@+id/dateOfIncomeEditText"
-                style="@style/Widget.MyApp.Spinner.ThemeOverlay.AutoCompleteTextView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="none"
-                android:lines="1"
-                android:maxLines="1"
-                android:textColor="@color/black" />
-        </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatCheckBox
             android:id="@+id/appCompatCheckBox"
@@ -270,20 +239,20 @@
             android:layout_marginEnd="@dimen/_5sdp"
             android:text="The purchase was successfully"
             app:layout_constraintStart_toStartOf="@+id/guidelineStart"
-            app:layout_constraintTop_toBottomOf="@+id/layoutOfEditTextDateOfIncome" />
+            app:layout_constraintTop_toBottomOf="@+id/totalCountOfItemsTextView" />
 
 
         <com.google.android.material.button.MaterialButton
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Save"
-            app:layout_constraintTop_toBottomOf="@id/appCompatCheckBox"
             android:layout_marginHorizontal="@dimen/_10sdp"
-            app:cornerRadius="@dimen/_20ssp"
-            android:paddingVertical="@dimen/_8sdp"
-            app:backgroundTint="@color/green_500"
             android:layout_marginTop="@dimen/_20sdp"
+            android:paddingVertical="@dimen/_8sdp"
+            android:text="Save"
+            app:backgroundTint="@color/green_500"
+            app:cornerRadius="@dimen/_20ssp"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
             app:layout_constraintStart_toStartOf="@id/guidelineStart"
-            app:layout_constraintEnd_toEndOf="@id/guidelineEnd" />
+            app:layout_constraintTop_toBottomOf="@id/appCompatCheckBox" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

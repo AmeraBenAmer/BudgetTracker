@@ -2,7 +2,8 @@ package com.devamsba.managebudget.feat_accounts.data.module
 
 import com.devamsba.managebudget.common.data.AppDatabase
 import com.devamsba.managebudget.feat_accounts.data.local.AccountsDao
-import com.devamsba.managebudget.feat_accounts.data.repository.AccountsRepository
+import com.devamsba.managebudget.feat_accounts.data.repository.AccountsRepositoryImpl
+import com.devamsba.managebudget.feat_accounts.domain.repository.AccountsRepository
 import com.devamsba.managebudget.feat_accounts.domain.usecase.*
 import dagger.Module
 import dagger.Provides
@@ -32,4 +33,12 @@ object AccountsModule {
 
         )
     }
+
+    @Provides
+    @Singleton
+    fun  provideRepository(appDataBase: AppDatabase): AccountsRepository {
+        return AccountsRepositoryImpl(appDataBase)
+    }
+
+
 }

@@ -14,7 +14,9 @@ buildscript {
     // room db
     ext.room_db_version = "2.3.0"
 
+
     repositories {
+        maven { url 'https://jitpack.io' }
         google()
         mavenCentral()
     }

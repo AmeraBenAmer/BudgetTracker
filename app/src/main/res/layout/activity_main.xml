@@ -6,10 +6,21 @@
     <data>
         <variable
             name="viewModel"
-            type="com.devamsba.managebudget.presentation.base.BaseViewModel" />
+            type="com.devamsba.managebudget.common.presentation.base.BaseViewModel" />
 
      </data>
 
+    <!--com.wwdablu.soumya.lottiebottomnav.LottieBottomNav
+                android:id="@+id/bottom_nav"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_alignParentBottom="true"
+                android:background="@android:color/white"
+                app:menu_selected_height="48dp"
+                app:menu_selected_width="48dp"
+                app:menu_text_show_on_unselected="true"
+                app:menu_unselected_height="40dp"
+                app:menu_unselected_width="40dp" />-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -37,7 +48,6 @@
             android:layout_height="0dp"
             app:defaultNavHost="true"
             android:name="androidx.navigation.fragment.NavHostFragment"
-
             app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

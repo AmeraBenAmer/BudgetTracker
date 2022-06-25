@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.devamsba.managebudget.feat_accounts.domain.entity.AccountsEntity"
+
+            />
+
+        <variable
+            name="clickOnItem"
+            type="com.devamsba.managebudget.common.presentation.Listener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iconAccountImageView"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_card"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/nameAccountTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            style="@style/font_size_12_bold"
+            android:textColor="@color/black"
+            android:text="@{item.name}"
+            app:layout_constraintStart_toEndOf="@id/iconAccountImageView"
+            app:layout_constraintTop_toTopOf="@+id/iconAccountImageView"
+            app:layout_constraintBottom_toBottomOf="@+id/iconAccountImageView" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/deleteAccountImageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:onClickListener="@{() -> clickOnItem.onItemClicked(item)}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:src="@drawable/ic_baseline_delete_outline_24"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

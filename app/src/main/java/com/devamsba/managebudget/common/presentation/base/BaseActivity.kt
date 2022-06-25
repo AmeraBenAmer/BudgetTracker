@@ -15,6 +15,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.devamsba.managebudget.common.infra.utils.OnOneOffClickListener
 import java.lang.Exception
+import android.app.Activity
+import androidx.core.view.WindowInsetsCompat
+
 
 abstract class BaseActivity<out T: ViewDataBinding, VM : BaseViewModel>: AppCompatActivity() {
     abstract fun initDataBinding()
@@ -43,6 +46,32 @@ abstract class BaseActivity<out T: ViewDataBinding, VM : BaseViewModel>: AppComp
         }
     }
 
+    open fun showSoftInput(view: View) {
+        /*val inputMethodManager =
+            this.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.toggleSoftInput(0, InputMethodManager.RESULT_SHOWN)*/
+
+//        val insetsController = ViewCompat.getWindowInsetsController(view)
+//        insetsController?.show(WindowInsetsCompat.Type.ime())
+//        val imm: InputMethodManager? =
+//            this.getSystemService(Context.INPUT_METHOD_SERVICE)  as InputMethodManager?
+//        imm?.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
+        val inputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
+       // inputMethodManager.showSoftInput(view, InputMethodManager.SHOW_FORCED)
+    }
+    open fun hideSoftInput() {
+        val view = this.currentFocus
+        if (view != null){
+            val imm =
+                getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+           // imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
+        }
+
+//        val inputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+//        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+    }
     fun View.setSafeOnClickListener(onSafeClick: (View) -> Unit){
         try {
             val safeClickListener = OnOneOffClickListener{view ->

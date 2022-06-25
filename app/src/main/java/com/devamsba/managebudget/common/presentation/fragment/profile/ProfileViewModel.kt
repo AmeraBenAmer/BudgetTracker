@@ -4,8 +4,8 @@ import com.devamsba.managebudget.common.presentation.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
-@HiltViewModel
-class ProfileViewModel @Inject constructor(private val baseUseCase: BaseUseCase): BaseViewModel() {
+
+class ProfileViewModel : BaseViewModel() {
     override fun showLoading() {
         TODO("Not yet implemented")
     }

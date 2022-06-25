@@ -11,6 +11,15 @@
     <string name="lbl_my_profile">الملف الشخصي</string>
     <string name="lbl_account">حسابي</string>
     <string name="lbl_setting">الأعدادت</string>
+    <string name="title_delete_dialog">Delete Account</string>
+    <string name="supporting_text_delete_dialog">Are you sure you want to delete your account?</string>
+    <string name="txt_decline">cancle</string>
+    <string name="txt_accept">Accept</string>
+    <string name="lab_language_english">English</string>
+    <string name="lab_language_arabic">اللغة العربية</string>
+    <string name="save_data_txt">حفظ البيانات</string>
+    <string name="text_validation_success">validation success</string>
+    <string name="text_validation_error">field is required</string>
 
 
     <string-array name="list_of_currency">

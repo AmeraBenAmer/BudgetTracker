@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -58,7 +58,7 @@
             android:id="@+id/firstDivider"
             android:layout_width="0dp"
             android:layout_height="@dimen/_1sdp"
-             android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_60sdp"
             android:alpha="0.5"
             android:background="@color/gray_400"
@@ -84,9 +84,9 @@
                 style="@style/font_size_14_medium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Total Balance"
-                android:layout_marginTop="@dimen/_8sdp"
                 android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="Total Balance"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -130,7 +130,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_5sdp"
-
                 android:layout_marginTop="@dimen/_8sdp"
                 android:text="Total Balance"
                 app:layout_constraintStart_toStartOf="parent"
@@ -181,9 +180,9 @@
                 style="@style/font_size_16_bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_8sdp"
                 android:layout_marginHorizontal="@dimen/_5sdp"
-                android:text="Source Of Income"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:text="History Of your Transactions"
                 app:layout_constraintBottom_toTopOf="@+id/guidelinerv"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -196,15 +195,81 @@
                 app:layout_constraintGuide_percent="0.06" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/sourceOfIncomeRecyclerView"
+                android:id="@+id/historyOfTransactionRecyclerView"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-
                 app:layout_constraintTop_toBottomOf="@+id/guidelinerv"
-                tools:listitem="@layout/item_list_of_icome" />
+                tools:listitem="@layout/item_list_of_transaction" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/showFloatingActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:layout_marginBottom="@dimen/_65sdp"
+                android:src="@drawable/ic_arrow_up"
+                app:fabSize="normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:contentDescription="TODO" />
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/addIncomeFloatingActionBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                app:fabSize="mini"
+                app:layout_constraintBottom_toTopOf="@+id/showFloatingActionButton"
+                app:layout_constraintEnd_toEndOf="@+id/showFloatingActionButton"
+                app:layout_constraintStart_toStartOf="@+id/showFloatingActionButton"
+                app:srcCompat="@drawable/ic_add" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/addIncomesTextView"
+                style="@style/font_size_10_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:text="Incomes"
+                app:layout_constraintBottom_toBottomOf="@+id/addIncomeFloatingActionBar"
+                app:layout_constraintEnd_toStartOf="@+id/addIncomeFloatingActionBar"
+                app:layout_constraintTop_toTopOf="@+id/addIncomeFloatingActionBar" />
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/addExpensesFloatingActionBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                app:fabSize="mini"
+                app:layout_constraintBottom_toTopOf="@+id/addIncomeFloatingActionBar"
+                app:layout_constraintEnd_toEndOf="@+id/addIncomeFloatingActionBar"
+                app:layout_constraintStart_toStartOf="@+id/addIncomeFloatingActionBar"
+                app:srcCompat="@drawable/ic_muns" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/addExpensesTextView"
+                style="@style/font_size_10_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Expenses"
+                app:layout_constraintBottom_toBottomOf="@+id/addExpensesFloatingActionBar"
+                app:layout_constraintEnd_toStartOf="@+id/addExpensesFloatingActionBar"
+                app:layout_constraintTop_toTopOf="@+id/addExpensesFloatingActionBar" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/groupOfFloatingActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="addExpensesFloatingActionBar, addExpensesTextView, addIncomeFloatingActionBar, addIncomesTextView" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

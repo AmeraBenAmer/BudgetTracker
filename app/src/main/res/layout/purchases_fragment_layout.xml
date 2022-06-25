@@ -52,6 +52,17 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 tools:listitem="@layout/item_list_of_transaction" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:src="@drawable/ic_add"
+            android:id="@+id/addPurchasesFloatingButton"
+            android:contentDescription="TODO" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

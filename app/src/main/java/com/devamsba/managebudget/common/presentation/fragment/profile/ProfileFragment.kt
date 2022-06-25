@@ -63,6 +63,10 @@ class ProfileFragment(override val layoutRes: Int = R.layout.profile_fragment_la
                 findNavController().navigate(
                     ProfileFragmentDirections.actionProfileFragmentToMyBankAccountsFragment())
             }
+            myCategoriesLayout.setOnClickListener {
+                findNavController().navigate(
+                    ProfileFragmentDirections.actionProfileFragmentToCreateNewCategoryDialog())
+            }
         }
     }
 

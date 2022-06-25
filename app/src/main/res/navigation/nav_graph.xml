@@ -3,13 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeAddFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.devamsba.managebudget.common.presentation.fragment.home.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/home_fragment_layout"/>
+        tools:layout="@layout/home_fragment_layout">
+        <action
+            android:id="@+id/action_homeFragment_to_expesesAddFragment"
+            app:destination="@id/expesesAddFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_incomesAddFragment"
+            app:destination="@id/incomesAddFragment" />
+    </fragment>
     <fragment
         android:id="@+id/historyFragment"
         android:name="com.devamsba.managebudget.feat_history.presentation.HistoryFragment"
@@ -31,32 +38,32 @@
         <action
             android:id="@+id/action_profileFragment_to_myBankAccountsFragment"
             app:destination="@id/myBankAccountsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_createNewCategoryDialog"
+            app:destination="@id/createNewCategoryDialog" />
     </fragment>
     <fragment
         android:id="@+id/purchasesAddFragement"
-        android:name="com.devamsba.managebudget.feat_purchases.presentation.PurchasesAddFragement"
+        android:name="com.devamsba.managebudget.feat_purchases.presentation.PurchasesAddFragment"
         android:label="PurchasesAddFragement"
         tools:layout="@layout/purchases_add_fragment_layout"/>
     <fragment
         android:id="@+id/purchasesFragment"
         android:name="com.devamsba.managebudget.feat_purchases.presentation.PurchasesFragment"
         android:label="PurchasesFragment"
-        tools:layout="@layout/purchases_fragment_layout"/>
-    <fragment
-        android:id="@+id/homeAddFragment"
-        android:name="com.devamsba.managebudget.common.presentation.fragment.add_home.HomeAddFragment"
-        android:label="HomeAddFragemnt"
-        tools:layout="@layout/home_add_fragment_layout">
-
+        tools:layout="@layout/purchases_fragment_layout">
+        <action
+            android:id="@+id/action_purchasesFragment_to_purchasesAddFragement"
+            app:destination="@id/purchasesAddFragement" />
     </fragment>
-    <fragment
+    <dialog
         android:id="@+id/languageDialog"
         tools:layout="@layout/language_dialog"
         android:name="com.devamsba.managebudget.common.presentation.dialog.LanguageDialog"
         android:label="LanguageDialog" />
-    <fragment
+    <dialog
         android:id="@+id/typeMoneyDialog"
-        tools:layout="@layout/type_money_dialog"
+        tools:layout="@layout/one_input_dialog"
 
         android:name="com.devamsba.managebudget.feat_accounts.presentation.dialog.TypeMoneyDialog"
         android:label="TypeMoneyDialog" />
@@ -68,6 +75,21 @@
             android:id="@+id/action_myBankAccountsFragment_to_typeMoneyDialog"
             app:destination="@id/typeMoneyDialog" />
     </fragment>
+    <dialog
+        tools:layout="@layout/one_input_dialog"
+        android:id="@+id/createNewCategoryDialog"
+        android:name="com.devamsba.managebudget.feat_categries.presentation.dialog.CreateNewCategoryDialog"
+        android:label="CreateNewCategoryDialog" />
+    <fragment
+        tools:layout="@layout/expeses_add_fragment_layout"
+        android:id="@+id/expesesAddFragment"
+        android:name="com.devamsba.managebudget.feat_expense.presentation.ExpesesAddFragment"
+        android:label="ExpesesAddFragment" />
+    <fragment
+        tools:layout="@layout/add_icomes_fragment_layout"
+        android:id="@+id/incomesAddFragment"
+        android:name="com.devamsba.managebudget.feat_incoms.presentation.IncomesAddFragment"
+        android:label="IncomesAddFragment" />
 
 
 </navigation>

@@ -8,6 +8,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:background="@drawable/bg_rounded_dialog"
+        android:paddingVertical="@dimen/_25sdp"
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -17,7 +19,6 @@
             style="@style/font_size_16_bold"
             android:textColor="@color/black"
             android:text="@string/language"
-            android:layout_marginTop="@dimen/_10sdp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -26,21 +27,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="@dimen/_15sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="@dimen/_25sdp"
             app:layout_constraintTop_toBottomOf="@+id/titleOfLanguageDialog">
         <androidx.appcompat.widget.AppCompatRadioButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="English"
+            android:text="@string/lab_language_english"
             android:id="@+id/radioBtnEnglish"
             style="@style/font_size_14_medium"/>
 
         <androidx.appcompat.widget.AppCompatRadioButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="arabic"
+            android:text="@string/lab_language_arabic"
             android:id="@+id/radioBtnArabic"
             style="@style/font_size_14_medium"
             android:layout_marginTop="@dimen/_10sdp"
@@ -54,6 +56,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="إلغاء"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/_20ssp"
             android:textColor="@color/red_700"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"

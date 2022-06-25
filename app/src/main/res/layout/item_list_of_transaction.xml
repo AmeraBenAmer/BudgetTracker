@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <variable
+            name="item"
+            type="com.devamsba.managebudget.feat_history.domain.entity.HistoryEntity"
+
+            />
+
+        <variable
+            name="clickOnItem"
+            type="com.devamsba.managebudget.common.presentation.Listener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -13,70 +23,81 @@
         android:layout_marginTop="0dp">
 
 
-
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iconImageView"
-            android:layout_width="@dimen/_30sdp"
-            android:layout_height="@dimen/_30sdp"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:src="@drawable/ic_shop"
+            setDrawable="@{item.type}"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginStart="20dp"
+
             android:layout_marginTop="@dimen/_12sdp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/red_700"
+            tools:src="@drawable/ic_arrow_circle_down" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/itemTitleTextView"
-            style="@style/font_size_14_medium"
-            android:layout_width="wrap_content"
+            style="@style/font_size_12_medium"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:text="Grocery"
-            app:layout_constraintStart_toEndOf="@+id/iconImageView"
-            app:layout_constraintTop_toTopOf="@+id/iconImageView" />
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:lineSpacingExtra="@dimen/_1sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:text="@{item.actionTitle}"
+            app:layout_constraintStart_toEndOf="@id/itemPercentageTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/iconImageView"
+            tools:text="action item fgkhkldsh dslgkjhs sldghsjkd slgdhs lsghd lksjdhg slgh" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/itemAmountTextView"
-            style="@style/font_size_16_bold"
+            style="@style/font_size_8_medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="29,000"
-            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:text="@{item.dateTime}"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/itemTitleTextView"
-            app:layout_constraintTop_toBottomOf="@+id/itemTitleTextView" />
-
+            app:layout_constraintTop_toBottomOf="@+id/itemTitleTextView"
+            tools:text="12/5/2022" />
+        <!--            android:text="@{item.amount.toString()}"
+        -->
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/arrowImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_10sdp"
+            android:visibility="gone"
             android:src="@drawable/ic_arrow_right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/itemPersentageTextView"
-            style="@style/font_size_16_bold"
+            android:id="@+id/itemPercentageTextView"
+            style="@style/font_size_14_bold"
+            settext="@{item}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="- 3%"
-            android:layout_marginEnd="@dimen/_5sdp"
+            android:text="- 366%"
             android:textColor="@color/red_700"
-            app:layout_constraintBottom_toBottomOf="@+id/arrowImageView"
-            app:layout_constraintEnd_toStartOf="@+id/arrowImageView"
-            app:layout_constraintTop_toTopOf="@+id/arrowImageView" />
+            app:layout_constraintEnd_toEndOf="@+id/iconImageView"
+            app:layout_constraintStart_toStartOf="@+id/iconImageView"
+            app:layout_constraintTop_toBottomOf="@+id/iconImageView" />
 
         <View
             android:id="@+id/divider"
             android:layout_width="0dp"
             android:layout_height="@dimen/_1sdp"
-            android:alpha=".3"
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_5sdp"
+            android:alpha=".3"
+
             android:background="@color/gray_600"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

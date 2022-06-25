@@ -73,6 +73,7 @@ abstract class BaseFragment<T: ViewDataBinding, VM: BaseViewModel>: Fragment() {
      }
 
      fun hideKeyboard() = mActivity?.hideKeyboard()
+     fun showKeyboard(view: View) = mActivity?.showSoftInput(view)
      fun showMessage(message: String) = mActivity?.showMessage(message)
     fun hideActionBar() = mActivity?.hideActionBar()
     fun changeColorStatusBar(color: Int) = mActivity?.changeColorStatusBar(color)
