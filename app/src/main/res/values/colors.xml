@@ -19,5 +19,6 @@
     <color name="transparent">#00000000</color>
     <color name="greyish_brown">#524E4D</color>
     <color name="toolBarColor">#F44336</color>
+    <color name="gray200">#E7EBEE</color>
 
 </resources>

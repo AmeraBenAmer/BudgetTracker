@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -90,6 +90,17 @@
         android:id="@+id/incomesAddFragment"
         android:name="com.devamsba.managebudget.feat_incoms.presentation.IncomesAddFragment"
         android:label="IncomesAddFragment" />
+    <fragment
+        android:id="@+id/splashFragment"
+        tools:layout="@layout/splash_fragment_layout"
+        android:name="com.devamsba.managebudget.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 
 
 </navigation>

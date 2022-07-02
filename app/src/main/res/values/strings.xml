@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">BudgetManagerAndExpenseTracker</string>
+    <string name="app_name">Budget Tracker</string>
     <string name="home_title_menu_item">Home</string>
     <string name="history_title_menu_item">History</string>
     <string name="purchases_title_menu_item">Purchese</string>
@@ -22,6 +22,7 @@
     <string name="text_validation_error">field is required</string>
     <string name="notification_title">Title</string>
     <string name="notification_subtitle">sub tiitle</string>
+    <string name="add_fab">Add Fab</string>
 
 
     <string-array name="list_of_currency" tools:ignore="InconsistentArrays">

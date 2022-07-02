@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:behavior_hideable="false"
+        android:background="@drawable/bg_rounded_model_sheet"
+        app:behavior_peekHeight="0dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        android:id="@+id/calculationBottomSheet">
+
+        <View
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_2sdp"
+            android:background="@color/black"
+            android:alpha="0.5"
+            android:layout_marginTop="@dimen/_4sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/resultId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:background="@drawable/text_bg"
+            android:padding="@dimen/_5sdp"
+            android:text="0"
+            android:textAlignment="viewEnd"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="@id/resultId"
+            app:layout_constraintStart_toStartOf="@id/resultId"
+            app:layout_constraintTop_toBottomOf="@id/resultId">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/nineBtn"
+                    android:layout_width="@dimen/_10sdp"
+                     android:layout_height="@dimen/_40sdp"
+                    android:layout_margin="@dimen/_4sdp"
+                    android:layout_weight=".5"
+                    android:background="@drawable/round_btn_bg"
+                    android:text="9"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/eightBtn"
+                    android:layout_width="@dimen/_10sdp"
+                     android:layout_height="@dimen/_40sdp"
+                    android:layout_margin="@dimen/_4sdp"
+                    android:layout_weight=".5"
+                    android:background="@drawable/round_btn_bg"
+                    android:text="8"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/sevenBtn"
+                    android:layout_width="@dimen/_10sdp"
+                     android:layout_height="@dimen/_40sdp"
+                    android:layout_margin="@dimen/_4sdp"
+                    android:layout_weight=".5"
+                    android:background="@drawable/round_btn_bg"
+                    android:text="7"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/multipyBtn"
+                    android:layout_width="@dimen/_10sdp"
+                     android:layout_height="@dimen/_40sdp"
+                    android:layout_margin="@dimen/_4sdp"
+                    android:layout_weight=".5"
+                    android:background="@drawable/round_btn_green_bg"
+                    android:text="X"
+                    android:textColor="@color/black"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/clearEverythingBtn"
+                    android:layout_width="@dimen/_10sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_margin="@dimen/_4sdp"
+                    android:layout_weight=".5"
+                    android:background="@drawable/round_btn_bg"
+                    android:text="CE" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/sixBtn"
+                    android:layout_width="@dimen/_10sdp"
+                     android:layout_height="@dimen/_40sdp"
+                    android:layout_margin="@dimen/_4sdp"
+                    android:layout_weight=".5"
+                    android:background="@drawable/round_btn_bg"
+                    android:text="6"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/fiveBtn"
+                    android:layout_width="@dimen/_10sdp"
+                     android:layout_height="@dimen/_40sdp"
+                    android:layout_margin="@dimen/_4sdp"
+                    android:layout_weight=".5"
+                    android:background="@drawable/round_btn_bg"
+                    android:text="5"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/fourBtn"
+                    android:layout_width="@dimen/_10sdp"
+                     android:layout_height="@dimen/_40sdp"
+                    android:layout_margin="@dimen/_4sdp"
+                    android:layout_weight=".5"
+                    android:background="@drawable/round_btn_bg"
+                    android:text="4"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/additionBtn"
+                    android:layout_width="@dimen/_10sdp"
+                     android:layout_height="@dimen/_40sdp"
+                    android:layout_margin="@dimen/_4sdp"
+                    android:layout_weight=".5"
+                    android:background="@drawable/round_btn_green_bg"
+                    android:text="+"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/clearBtn"
+                    android:layout_width="@dimen/_10sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_margin="@dimen/_4sdp"
+                    android:layout_weight=".5"
+                    android:background="@drawable/round_btn_bg"
+                    android:text="C" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/threeBtn"
+                    android:layout_width="@dimen/_10sdp"
+                     android:layout_height="@dimen/_40sdp"
+                    android:layout_margin="@dimen/_4sdp"
+                    android:layout_weight=".5"
+                    android:background="@drawable/round_btn_bg"
+                    android:text="3"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/twoBtn"
+                    android:layout_width="@dimen/_10sdp"
+                     android:layout_height="@dimen/_40sdp"
+                    android:layout_margin="@dimen/_4sdp"
+                    android:layout_weight=".5"
+                    android:background="@drawable/round_btn_bg"
+                    android:text="2"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/oneBtn"
+                    android:layout_width="@dimen/_10sdp"
+                     android:layout_height="@dimen/_40sdp"
+                    android:layout_margin="@dimen/_4sdp"
+                    android:layout_weight=".5"
+                    android:background="@drawable/round_btn_bg"
+                    android:text="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/subtractbBtn"
+                    android:layout_width="@dimen/_10sdp"
+                     android:layout_height="@dimen/_40sdp"
+                    android:layout_margin="@dimen/_4sdp"
+                    android:layout_weight=".5"
+                    android:background="@drawable/round_btn_green_bg"
+                    android:text="-"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/backspaceBtn"
+                    android:layout_width="@dimen/_10sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_margin="@dimen/_4sdp"
+                    android:layout_weight=".5"
+                    android:background="@drawable/round_btn_bg"
+                    android:src="@drawable/ic_baseline_backspace" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/percentBtn"
+                    android:layout_width="@dimen/_10sdp"
+                     android:layout_height="@dimen/_40sdp"
+                    android:layout_margin="@dimen/_4sdp"
+                    android:layout_weight=".5"
+                    android:background="@drawable/round_btn_bg"
+                    android:text="%"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/zeroBtn"
+                    android:layout_width="@dimen/_10sdp"
+                     android:layout_height="@dimen/_40sdp"
+                    android:layout_margin="@dimen/_4sdp"
+                    android:layout_weight=".5"
+                    android:background="@drawable/round_btn_bg"
+                    android:text="0"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/dotBtn"
+                    android:layout_width="@dimen/_10sdp"
+                     android:layout_height="@dimen/_40sdp"
+                    android:layout_margin="@dimen/_4sdp"
+                    android:layout_weight=".5"
+                    android:background="@drawable/round_btn_bg"
+                    android:text="."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/divideBtn"
+                    android:layout_width="@dimen/_10sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_margin="@dimen/_4sdp"
+                    android:layout_weight=".5"
+                    android:background="@drawable/round_btn_green_bg"
+                    android:text="/"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/equalBtn"
+                    android:layout_width="@dimen/_10sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_margin="@dimen/_4sdp"
+                    android:layout_weight=".5"
+                    android:background="@drawable/round_btn_green_500_bg"
+                    android:text="="
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

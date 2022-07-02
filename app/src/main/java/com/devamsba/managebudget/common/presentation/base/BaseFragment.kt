@@ -9,6 +9,7 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import com.devamsba.managebudget.MainActivity
 import com.devamsba.managebudget.common.infra.utils.OnOneOffClickListener
 
 abstract class BaseFragment<T: ViewDataBinding, VM: BaseViewModel>: Fragment() {
@@ -90,5 +91,12 @@ abstract class BaseFragment<T: ViewDataBinding, VM: BaseViewModel>: Fragment() {
          } catch (E: Exception) {
          }
      }
+
+    fun hideBottomNavigation(){
+        (activity as MainActivity).hideBottomNavigation()
+    }
+    fun showBottomNavigation(){
+        (activity as MainActivity).showBottomNavigation()
+    }
 
 }

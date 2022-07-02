@@ -165,11 +165,21 @@ class HistoryFragment(override val layoutRes: Int = R.layout.history_fragment_la
     private fun handleHistory(history: List<HistoryEntity>) {
         Log.e("handleHistory", "handleHistory: ${history} ")
         binding?.historyOfTransactionRecyclerView?.adapter?.let { adapter ->
-            if (adapter is HistoryAdapter)
-                history?.let(adapter::submitList)
-        }
+            if (adapter is HistoryAdapter && history.isNotEmpty()) {
 
+                binding?.historyOfTransactionRecyclerView!!.visibility = View.VISIBLE
+                binding?.emptyStateLayout!!.emptyStateListLayout.visibility = View.GONE
+
+                history?.let(adapter::submitList)
+            } else {
+                binding?.emptyStateLayout!!.emptyStateListLayout.visibility = View.VISIBLE
+                binding?.historyOfTransactionRecyclerView!!.visibility = View.GONE
+            }
+
+
+        }
     }
+
 
     private fun handleState(state: StateView) {
         when (state) {
@@ -366,7 +376,7 @@ class HistoryFragment(override val layoutRes: Int = R.layout.history_fragment_la
         dataSet.colors = colors
         binding?.incomesPieChart?.data = data
         data.setValueTextSize(15f)
- //        binding?.expensesPieChart?.animateY(1400, Easing.EaseInOutQuad)
+        //        binding?.expensesPieChart?.animateY(1400, Easing.EaseInOutQuad)
 
         // Value lines
         dataSet.valueLinePart1Length = 0.6f
@@ -436,7 +446,7 @@ class HistoryFragment(override val layoutRes: Int = R.layout.history_fragment_la
         dataSet.colors = colors
         binding?.expensesPieChart?.data = data
         data.setValueTextSize(15f)
- //        binding?.expensesPieChart?.animateY(1400, Easing.EaseInOutQuad)
+        //        binding?.expensesPieChart?.animateY(1400, Easing.EaseInOutQuad)
 
         // Value lines
         dataSet.valueLinePart1Length = 0.6f

@@ -54,7 +54,7 @@ class MyBankAccountsFragment constructor(
 
     private fun setupRecyclerView() {
         val accountsAdapter = AccountsAdapter(this)
-        binding?.recyclerView?.apply {
+        binding?.recyclerViewAccounts?.apply {
             adapter = accountsAdapter
         }
     }
@@ -99,10 +99,19 @@ class MyBankAccountsFragment constructor(
     }
 
     private fun handleAccounts(accounts: List<AccountsEntity>) {
-        binding?.recyclerView?.adapter?.let { adapter ->
-            if (adapter is AccountsAdapter)
+        binding?.recyclerViewAccounts?.adapter?.let { adapter ->
+            if (adapter is AccountsAdapter && accounts.isNotEmpty()) {
+
+                binding?.recyclerViewAccounts!!.visibility = View.VISIBLE
+                binding?.emptyStateLayout!!.emptyStateListLayout.visibility = View.GONE
+
                 accounts?.let(adapter::submitList)
+            } else {
+                binding?.emptyStateLayout!!.emptyStateListLayout.visibility = View.VISIBLE
+                binding?.recyclerViewAccounts!!.visibility = View.GONE
+            }
         }
+
 
     }
 

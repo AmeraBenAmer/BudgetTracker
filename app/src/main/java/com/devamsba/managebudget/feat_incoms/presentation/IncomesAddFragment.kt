@@ -7,12 +7,14 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.devamsba.managebudget.BR
+import com.devamsba.managebudget.CalculatorModelBottomSheet
 import com.devamsba.managebudget.R
 import com.devamsba.managebudget.common.domain.validator.EmptyValidator
 import com.devamsba.managebudget.common.infra.Either
@@ -24,6 +26,7 @@ import com.devamsba.managebudget.feat_accounts.domain.entity.AccountsEntity
 import com.devamsba.managebudget.feat_categries.domain.entity.CategoriesEntity
 import com.devamsba.managebudget.feat_history.domain.entity.HistoryEntity
 import com.devamsba.managebudget.feat_incoms.domain.entity.IncomeEntity
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -47,11 +50,13 @@ class IncomesAddFragment(override val layoutRes: Int = R.layout.add_icomes_fragm
     lateinit var title: String
     lateinit var account: String
     lateinit var category: String
+    lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initBottomSheet()
         initDesignViews()
         initCurrencyData()
         initTypeData()
@@ -63,6 +68,7 @@ class IncomesAddFragment(override val layoutRes: Int = R.layout.add_icomes_fragm
         viewModel.fetchIncome()
 
         setOnClickListener()
+
 
 //        val en = IncomeEntity(id = 1 ,title = "First", amount = 22.2, date ="12,3,1312", isNotify = false , currency = 1)
 //        viewModel.insertIncome(en)
@@ -76,11 +82,36 @@ class IncomesAddFragment(override val layoutRes: Int = R.layout.add_icomes_fragm
 
     }
 
+    private fun initBottomSheet() {
+
+        val bottomSheetView by lazy { binding?.layoutModelBottomSheet?.calculationBottomSheet }
+        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheetView as ConstraintLayout)
+        setBottomSheetVisibility(false)
+
+
+    }
+
+    private fun setBottomSheetVisibility(isVisible: Boolean) {
+        val updatedState =
+            if (isVisible) BottomSheetBehavior.STATE_EXPANDED else BottomSheetBehavior.STATE_COLLAPSED
+        bottomSheetBehavior.state = updatedState
+    }
+
     private fun setOnClickListener() {
         binding?.apply {
+//            saveButton.setOnClickListener {
+//                validation()
+//                insertIncomesData()
+//            }
+
             saveButton.setOnClickListener {
-                validation()
-                insertIncomesData()
+                CalculatorModelBottomSheet.newInstance().show(
+                    childFragmentManager,
+                    CalculatorModelBottomSheet::class.java.canonicalName
+                )
+
+                setBottomSheetVisibility(true)
+
             }
         }
     }

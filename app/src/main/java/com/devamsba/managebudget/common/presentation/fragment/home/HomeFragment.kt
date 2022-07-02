@@ -32,6 +32,9 @@ class HomeFragment(override val layoutRes: Int = R.layout.home_fragment_layout) 
     Listener<HistoryEntity> {
     override val viewModel: HomeViewModel by viewModels()
 
+    private var expensesSummation: Double = 0.0
+    private var incomesSummation: Double = 0.0
+
     override fun initDataBinding() {
         binding!!.setVariable(BR._all, viewModel)
     }
@@ -93,18 +96,34 @@ class HomeFragment(override val layoutRes: Int = R.layout.home_fragment_layout) 
 
     private fun observeExpenses() {
         viewModel.expensesSummation.flowWithLifecycle(lifecycle, Lifecycle.State.STARTED)
-            .onEach { handleExpenses(it) }
+            .onEach {
+                expensesSummation = it
+                handleExpenses(it)
+            }
             .launchIn(lifecycleScope)
     }
 
     private fun observeIncomes() {
         viewModel.incomesSummation.flowWithLifecycle(lifecycle, Lifecycle.State.STARTED)
-            .onEach { handleIncomes(it) }
+            .onEach {
+                incomesSummation = it
+                handleIncomes(it)
+
+            }
             .launchIn(lifecycleScope)
     }
 
     private fun handleExpenses(totalAmount: Double) {
         binding?.expensesAmountTextView?.text = totalAmount.toString()
+        setTotalAmountInView()
+        setTotalAmountInView()
+    }
+
+    private fun setTotalAmountInView(){
+        var total = 0.0
+        if (incomesSummation > expensesSummation)
+             total = incomesSummation - expensesSummation
+        binding?.totalBalanceAmount?.text = total.toString()
     }
 
     private fun handleIncomes(totalAmount: Double) {
@@ -114,8 +133,15 @@ class HomeFragment(override val layoutRes: Int = R.layout.home_fragment_layout) 
     private fun handleHistory(history: List<HistoryEntity>) {
         Log.e("handleHistory", "handleHistory: ${history} ")
         binding?.historyOfTransactionRecyclerView?.adapter?.let { adapter ->
-            if (adapter is HistoryAdapter)
+            if (adapter is HistoryAdapter && history.isNotEmpty()) {
+                binding?.historyOfTransactionRecyclerView!!.visibility = View.VISIBLE
+                binding?.emptyStateLayout!!.emptyStateListLayout.visibility = View.GONE
+
                 history?.let(adapter::submitList)
+            } else {
+                binding?.emptyStateLayout!!.emptyStateListLayout.visibility = View.VISIBLE
+                binding?.historyOfTransactionRecyclerView!!.visibility = View.GONE
+            }
         }
 
     }
@@ -180,6 +206,7 @@ class HomeFragment(override val layoutRes: Int = R.layout.home_fragment_layout) 
         hideActionBar()
         changeColorStatusBar(R.color.white)
         changeTextStatusBar()
+        showBottomNavigation()
     }
 
     override fun onTap(entity: HistoryEntity) {

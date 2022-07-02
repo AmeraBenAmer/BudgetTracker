@@ -1,12 +1,8 @@
 package com.devamsba.managebudget
 
 import android.content.Context
-import android.graphics.Color
-import android.graphics.Typeface
 import android.os.Bundle
-import android.text.SpannableString
-import android.text.Spanned
-import android.text.style.ForegroundColorSpan
+import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
@@ -19,11 +15,6 @@ import com.devamsba.managebudget.common.infra.utils.LocalizationUtils
 import com.devamsba.managebudget.common.presentation.base.BaseActivity
 import com.devamsba.managebudget.common.presentation.base.BaseViewModel
 import com.devamsba.managebudget.databinding.ActivityMainBinding
-import com.devamsba.managebudget.feat_incoms.presentation.IncomesAddViewModel
-import com.wwdablu.soumya.lottiebottomnav.FontBuilder
-import com.wwdablu.soumya.lottiebottomnav.ILottieBottomNavCallback
-import com.wwdablu.soumya.lottiebottomnav.MenuItem
-import com.wwdablu.soumya.lottiebottomnav.MenuItemBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
@@ -46,7 +37,7 @@ class MainActivity(override val layout: Int = R.layout.activity_main) :
 
     override val viewModel: BaseViewModel by viewModels()
 
-    var languageSettings: String = "ar"
+    private var languageSettings: String = "ar"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,9 +54,18 @@ class MainActivity(override val layout: Int = R.layout.activity_main) :
 
         NavigationUI.setupWithNavController(binding.bottomNavigation, navHostFragment.navController)
 
-       // intiNavBottom()
+        // intiNavBottom()
     }
 
+
+    fun hideBottomNavigation(){
+        binding?.bottomNavigation.visibility = View.GONE
+    }
+
+
+    fun showBottomNavigation(){
+        binding?.bottomNavigation.visibility = View.VISIBLE
+    }
 
     override fun attachBaseContext(newBase: Context) {
         super.attachBaseContext(newBase)

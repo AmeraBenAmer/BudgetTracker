@@ -8,10 +8,10 @@ import com.devamsba.managebudget.common.presentation.base.BaseAdapter
 import com.devamsba.managebudget.feat_history.domain.entity.HistoryEntity
 
 
-class HistoryAdapter(listener: Listener<HistoryEntity>)
-    : BaseAdapter<HistoryEntity>(DiffCallBack(), listener) {
+class HistoryAdapter(listener: Listener<HistoryEntity>) :
+    BaseAdapter<HistoryEntity>(DiffCallBack(), listener) {
 
-    class DiffCallBack: DiffUtil.ItemCallback<HistoryEntity>(){
+    class DiffCallBack : DiffUtil.ItemCallback<HistoryEntity>() {
         override fun areItemsTheSame(oldItem: HistoryEntity, newItem: HistoryEntity): Boolean {
             return oldItem == newItem
         }
@@ -29,5 +29,7 @@ class HistoryAdapter(listener: Listener<HistoryEntity>)
         Log.e("getItemViewType", "getItemViewType:  HEre  else", )
         R.layout.empty_data_layout
     }
+
+
 
 }
